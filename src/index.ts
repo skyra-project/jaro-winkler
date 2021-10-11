@@ -4,7 +4,7 @@ export type CharArray = readonly string[];
 export type CharArrayResolvable = string | CharArray;
 
 export function decodeUtf8(str: CharArrayResolvable): CharArray {
-	return typeof str === 'string' ? [...str] : Array.isArray(str) ? str.flat(10) : str;
+	return typeof str === 'string' ? [...str] : str;
 }
 
 /**
