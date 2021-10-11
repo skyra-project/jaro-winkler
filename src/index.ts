@@ -1,5 +1,3 @@
-export { jaroWinkler as getJaroWinklerDistance };
-
 export type CharArray = readonly string[];
 export type CharArrayResolvable = string | CharArray;
 
