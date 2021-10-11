@@ -3,8 +3,8 @@ export { jaroWinkler as getJaroWinklerDistance };
 export type CharArray = readonly string[];
 export type CharArrayResolvable = string | CharArray;
 
-export function decode(str: CharArrayResolvable): CharArray {
-	return typeof str === 'string' ? [...str] : str;
+export function decodeUtf8(str: CharArrayResolvable): CharArray {
+	return typeof str === 'string' ? [...str] : Array.isArray(str) ? str.flat(10) : str;
 }
 
 /**
@@ -13,8 +13,8 @@ export function decode(str: CharArrayResolvable): CharArray {
  * @param stringCompareWith The string to compare with
  */
 export function jaroWinkler(stringCompare: CharArrayResolvable, stringCompareWith: CharArrayResolvable) {
-	const a1 = decode(stringCompare);
-	const a2 = decode(stringCompareWith);
+	const a1 = decodeUtf8(stringCompare);
+	const a2 = decodeUtf8(stringCompareWith);
 
 	const l1 = a1.length;
 	const l2 = a2.length;
