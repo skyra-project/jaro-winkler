@@ -1,12 +1,19 @@
 {
-	"name": "@sapphire/template",
-	"version": "0.0.1",
-	"description": "template",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"author": "@sapphire",
+	"name": "@skyra/jaro-winkler",
+	"version": "1.0.0",
+	"description": "A string similarity utility that uses the Jaro-Winkler algorithm",
+	"author": "@skyra",
 	"license": "MIT",
-	"private": false,
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"browser": "dist/index.umd.js",
+	"unpkg": "dist/index.umd.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js"
+	},
+	"sideEffects": false,
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
 		"format": "prettier --write {src,tests}/**/*.ts",
@@ -14,17 +21,13 @@
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"update": "yarn upgrade-interactive --latest",
-		"build": "tsc -b src",
-		"clean": "tsc -b src --clean",
-		"watch": "tsc -b src -w",
+		"build": "rollup -c rollup.config.ts",
+		"watch": "yarn build -w",
 		"sversion": "standard-version",
 		"commit": "git-cz",
 		"cz": "git-cz",
 		"prepublishOnly": "yarn build",
 		"prepare": "husky install .github/husky"
-	},
-	"dependencies": {
-		"tslib": "^2.3.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.1",
@@ -33,7 +36,7 @@
 		"@sapphire/prettier-config": "^1.2.1",
 		"@sapphire/ts-config": "^3.1.0",
 		"@types/jest": "^27.0.2",
-		"@types/node": "^16.9.1",
+		"@types/node": "^16.10.3",
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
 		"cz-conventional-changelog": "^3.3.0",
@@ -43,18 +46,22 @@
 		"husky": "^7.0.2",
 		"jest": "^27.2.5",
 		"jest-circus": "^27.2.5",
-		"lint-staged": "^11.2.2",
+		"lint-staged": "^11.2.3",
 		"prettier": "^2.4.1",
 		"pretty-quick": "^3.1.1",
+		"rollup": "^2.58.0",
+		"rollup-plugin-cleaner": "^1.0.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"rollup-plugin-typescript2": "^0.30.0",
 		"standard-version": "^9.3.1",
 		"ts-jest": "^27.0.5",
-		"ts-node": "^10.2.1",
+		"ts-node": "^10.3.0",
 		"typedoc": "^0.22.5",
 		"typescript": "^4.4.3"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sapphiredev/template.git"
+		"url": "git+https://github.com/skyra-project/jaro-winkler.git"
 	},
 	"files": [
 		"dist",
@@ -65,19 +72,17 @@
 		"npm": ">=7.24.2"
 	},
 	"keywords": [
-		"@sapphire/template",
-		"bot",
-		"typescript",
-		"ts",
-		"yarn",
-		"discord",
-		"sapphire",
-		"discordjs"
+		"@skyra/jaro-winkler",
+		"jaro-winkler",
+		"algorithm",
+		"distance",
+		"similarity",
+		"skyra"
 	],
 	"bugs": {
-		"url": "https://github.com/sapphiredev/template/issues"
+		"url": "https://github.com/skyra-project/jaro-winkler/issues"
 	},
-	"homepage": "https://sapphiredev.github.io/template",
+	"homepage": "https://skyra-project.github.io/jaro-winkler",
 	"commitlint": {
 		"extends": [
 			"@commitlint/config-conventional"
@@ -94,17 +99,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"resolutions": {
-		"minimist": "^1.2.5",
-		"kind-of": "^6.0.3",
-		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
-		"jest-jasmine2": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
-		"dot-prop": "^6.0.1",
-		"lodash": "^4.17.21",
-		"marked": "^3.0.7",
-		"merge": "^2.1.1",
-		"trim": "^1.0.1",
-		"trim-newlines": "^4.0.2"
-	},
-	"prettier": "@sapphire/prettier-config"
+	"prettier": "@sapphire/prettier-config",
+	"packageManager": "yarn@3.0.2"
 }

@@ -1,6 +1,6 @@
 {
-	"projectName": "template",
-	"projectOwner": "sapphiredev",
+	"projectName": "jaro-winkler",
+	"projectOwner": "skyra-project",
 	"repoType": "github",
 	"repoHost": "https://github.com",
 	"files": ["README.md"],
