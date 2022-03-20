@@ -1,6 +1,6 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": "@sapphire/ts-config/without-decorators",
 	"compilerOptions": {
-		"module": "ESNext"
+		"target": "ES2021"
 	}
 }
