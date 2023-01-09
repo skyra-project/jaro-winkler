@@ -56,29 +56,19 @@ We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can us
 |  Ethereum   | ![EthereumImage][] | [0xcB5EDB76Bc9E389514F905D9680589004C00190c](ethereum:0xcB5EDB76Bc9E389514F905D9680589004C00190c?amount=0.01&label=Skyra%20Discord%20Bot) |
 |  Litecoin   | ![LitecoinImage][] |         [MNVT1keYGMfGp7vWmcYjCS8ntU8LNvjnqM](litecoin:MNVT1keYGMfGp7vWmcYjCS8ntU8LNvjnqM?amount=0.01&label=Skyra%20Discord%20Bot)         |
 
+## Contributors
+
+Please make sure to read the [Contributing Guide][contributing] before making a pull request.
+
+Thank you to all the people who already contributed to Sapphire!
+
+<a href="https://github.com/skyra-project/jaro-winkler/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=skyra-project/jaro-winkler" />
+</a>
+
+[contributing]: https://github.com/skyra-project/.github/blob/main/.github/CONTRIBUTING.md
 [patreonimage]: https://cdn.skyra.pw/gh-assets/patreon.png
 [paypalimage]: https://cdn.skyra.pw/gh-assets/paypal.png
 [bitcoinimage]: https://cdn.skyra.pw/gh-assets/bitcoin.png
 [ethereumimage]: https://cdn.skyra.pw/gh-assets/ethereum.png
 [litecoinimage]: https://cdn.skyra.pw/gh-assets/litecoin.png
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://favware.tech/"><img src="https://avatars.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/jaro-winkler/commits?author=favna" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/vladfrangu"><img src="https://avatars.githubusercontent.com/u/17960496?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vlad Frangu</b></sub></a><br /><a href="https://github.com/skyra-project/jaro-winkler/commits?author=vladfrangu" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
