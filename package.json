@@ -24,8 +24,7 @@
 		"build": "tsup && tsc -b src",
 		"sversion": "standard-version",
 		"clean": "node scripts/clean.mjs",
-		"prepublishOnly": "yarn build",
-		"prepare": "husky install .github/husky"
+		"prepack": "yarn build"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^16.2.3",
@@ -41,7 +40,6 @@
 		"eslint": "^8.11.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.0.0",
-		"husky": "^7.0.4",
 		"jest": "^27.5.1",
 		"jest-circus": "^27.5.1",
 		"lint-staged": "^12.3.7",
