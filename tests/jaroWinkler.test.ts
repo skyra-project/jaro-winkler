@@ -30,4 +30,16 @@ describe('jaro-winkler', () => {
 		expect(approxEql(jaroWinkler('class', 'clams'), 0.90666)).toBe(true);
 		expect(approxEql(jaroWinkler('clams', 'class'), 0.90666)).toBe(true);
 	});
+
+	test('should handle one character strings', () => {
+		expect(approxEql(jaroWinkler('O', 'O'), 1)).toBe(true);
+		expect(approxEql(jaroWinkler('I', 'O'), 0)).toBe(true);
+		expect(approxEql(jaroWinkler('O', 'OA'), 0.85)).toBe(true);
+		expect(approxEql(jaroWinkler('AO', 'A'), 0.85)).toBe(true);
+	});
+
+	test('should handle two character strings', () => {
+		expect(approxEql(jaroWinkler('OA', 'OA'), 1)).toBe(true);
+		expect(approxEql(jaroWinkler('IA', 'OA'), 0.66666)).toBe(true);
+	});
 });

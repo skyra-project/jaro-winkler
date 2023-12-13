@@ -37,7 +37,7 @@ export function jaroWinkler(stringCompare: CharArrayResolvable, stringCompareWit
 }
 
 function getMatching(a1: CharArray, a2: CharArray, matches1: Uint8Array, matches2: Uint8Array) {
-	const matchWindow = Math.floor(Math.max(a1.length, a2.length) / 2) - 1;
+	const matchWindow = Math.floor(Math.max(a1.length, a2.length) / 2);
 
 	let matches = 0;
 	let index1 = 0;
