@@ -51,6 +51,8 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
       - name: Use Node.js v20
         uses: actions/setup-node@v2
         with:
@@ -60,33 +62,16 @@ jobs:
         run: yarn --immutable
       - name: Build documentation
         run: yarn docs
-      - name: Publish Docs
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Add static files
         run: |
-          REPO="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-          echo -e "\n# Checkout the repo in the target branch"
-          TARGET_BRANCH="gh-pages"
-          git clone $REPO out -b $TARGET_BRANCH
-
-          echo -e "\n# Remove any old files in the out folder"
-          rm -rfv out/assets/*
-          rm -rfv out/interfaces/*
-          rm -rfv out/*.html
-
-          echo -e "\n# Move the generated docs to the newly-checked-out repo, to be committed and pushed"
-          rsync -vaI LICENSE.md out/
-          rsync -vaI README.md out/
-          rsync -vaI docs/ out/
-
-          echo -e "\n# Commit and push"
-          cd out
-          git add --all .
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_EMAIL}"
-          git commit -m "docs: api docs build for ${GITHUB_SHA}" || true
-          git push origin $TARGET_BRANCH
-        env:
-          GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
-          GITHUB_ACTOR: NM-EEA-Y
-          GITHUB_EMAIL: contact@skyra.pw
+          printf "User-agent: *\nDisallow:" > docs/robots.txt
+          cp .gitignore docs/
+          cp LICENSE.md docs/
+          cp README.md docs/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
