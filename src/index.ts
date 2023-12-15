@@ -1,14 +1,29 @@
+/**
+ * Represents an array of characters.
+ */
 export type CharArray = readonly string[];
+
+/**
+ * Represents a type that can be resolved to a string or a CharArray.
+ */
 export type CharArrayResolvable = string | CharArray;
 
+/**
+ * Decodes a UTF-8 string into a character array.
+ *
+ * @param str The UTF-8 string to decode.
+ * @returns The decoded character array.
+ */
 export function decodeUtf8(str: CharArrayResolvable): CharArray {
 	return typeof str === 'string' ? [...str] : str;
 }
 
 /**
- * Calculate the Jaro-Winkler distance between two words.
- * @param stringCompare The string to compare
- * @param stringCompareWith The string to compare with
+ * Calculates the {@link https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance Jaro-Winkler similarity} between two strings.
+ *
+ * @param stringCompare - The first string to compare.
+ * @param stringCompareWith - The second string to compare.
+ * @returns The {@link https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance Jaro-Winkler} between the two strings.
  */
 export function jaroWinkler(stringCompare: CharArrayResolvable, stringCompareWith: CharArrayResolvable) {
 	const a1 = decodeUtf8(stringCompare);
@@ -30,12 +45,21 @@ export function jaroWinkler(stringCompare: CharArrayResolvable, stringCompareWit
 	const similarity = (matches / l1 + matches / l2 + (matches - transpositions) / matches) / 3;
 
 	// Transform to Jaro-Winkler:
-	// Prefix scale gives more favorable ratings to strings that share common prefixes:
+	// Prefix scale gives more favourable ratings to strings that share common prefixes:
 	const prefixScale = 0.1;
 	const prefix = getPrefix(a1, a2);
 	return similarity + prefix * prefixScale * (1 - similarity);
 }
 
+/**
+ * Calculates the number of matching characters between two character arrays.
+ *
+ * @param a1 - The first character array.
+ * @param a2 - The second character array.
+ * @param matches1 - An array to store the matches for characters in `a1`.
+ * @param matches2 - An array to store the matches for characters in `a2`.
+ * @returns The number of matching characters between `a1` and `a2`.
+ */
 function getMatching(a1: CharArray, a2: CharArray, matches1: Uint8Array, matches2: Uint8Array) {
 	const matchWindow = Math.floor(Math.max(a1.length, a2.length) / 2);
 
