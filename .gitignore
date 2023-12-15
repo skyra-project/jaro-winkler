@@ -10,8 +10,13 @@ docs/
 .yarn/install-state.gz
 .yarn/build-state.yml
 
-# Ignore output folder
+# Ignore dist folder
 dist/
+*.tsbuildinfo
+
+# Ignore heapsnapshot and log files
+*.heapsnapshot
+*.log
 
 # Ignore package locks
 package-lock.json

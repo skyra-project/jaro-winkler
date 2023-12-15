@@ -1,1 +1,7 @@
 /src/ @kyranet @favna
+
+/.github/ @favna
+/.vscode/ @favna
+vitest.config.ts @favna
+package.json @favna
+README.md @favna
