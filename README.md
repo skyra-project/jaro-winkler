@@ -12,8 +12,8 @@
 
 ## Description
 
-A string similarity function using the Jaro-Winkler distance metric. Returns a
-number between 0 and 1. A 0 being no similarity and a 1 being an exact match.
+A string similarity function using the Jaro-Winkler distance metric. Returns a number between 0 and 1. A 0 being no
+similarity and a 1 being an exact match.
 
 Read more about it [on Wikipedia](http://en.wikipedia.org/wiki/Jaro–Winkler_distance).
 
@@ -39,14 +39,16 @@ import { jaroWinkler } from '@skyra/jaro-winkler';
 
 ## API Documentation
 
-For the full API documentation please refer to the TypeDoc generated [documentation](https://skyra-project.github.io/jaro-winkler).
+For the full API documentation please refer to the TypeDoc generated
+[documentation](https://skyra-project.github.io/jaro-winkler).
 
 ### Buy us some doughnuts
 
-Skyra Project is open source and always will be, even if we don't get donations. That said, we know there are amazing people who
-may still want to donate just to show their appreciation. Thanks you very much in advance!
+Skyra Project is open source and always will be, even if we don't get donations. That said, we know there are amazing
+people who may still want to donate just to show their appreciation. Thanks you very much in advance!
 
-We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can use the buttons below to donate through your method of choice.
+We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can use the buttons below to donate through
+your method of choice.
 
 | Donate With |         QR         |                                                                  Address                                                                  |
 | :---------: | :----------------: | :---------------------------------------------------------------------------------------------------------------------------------------: |
